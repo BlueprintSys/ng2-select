@@ -1,0 +1,28 @@
+{
+	"main": "bundles/ng2-select.umd.js",
+	"version": "2.0.0",
+	"description": "Angular2 based replacement for select boxes",
+	"module": "index.js",
+	"typings": "index.d.ts",
+	"keywords": [
+		"angular2",
+		"select",
+		"selectify",
+		"angularjs"
+	],
+	"author": {
+		"name": "Vyacheslav Chub",
+		"email": "vyacheslav.chub@valor-software.com"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/valor-software/ng2-select.git"
+	},
+	"name": "ng2-select",
+	"peerDependencies": {
+		"@angular/common": ">=4.3.0 || >5.0.0",
+		"@angular/core": ">=4.3.0 || >5.0.0"
+	},
+	"_id": "ng2-select@"
+}
