@@ -3,6 +3,7 @@
 const shell = require('shelljs');
 
 const PACKAGE_DIR = 'ng2-select';
+const MODULES_DIR = 'node_modules';
 const NPM_DIR = 'dist';
 const CLEANUP_DIRS = [
     'demo',
@@ -11,8 +12,11 @@ const CLEANUP_DIRS = [
     'src'
 ];
 
+shell.cd('..');
 const cwd = shell.pwd();
-if (cwd.length > PACKAGE_DIR.length && cwd.substr(cwd.length - PACKAGE_DIR.length) === PACKAGE_DIR) {
+if (cwd.length > MODULES_DIR.length && cwd.substr(cwd.length - MODULES_DIR.length) === MODULES_DIR) {
+    shell.cd(`${PACKAGE_DIR}`);
+
     // Remove everything except dist folder
     shell.rm('-Rf', ...CLEANUP_DIRS);
     shell.rm('-f', './*', './.*');
