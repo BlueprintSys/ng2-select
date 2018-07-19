@@ -1,3 +1,12 @@
+<a name="2.0.1"></a>
+# [2.0.1](https://github.com/valor-software/ng2-select/compare/v2.0.0...v2.0.1) (2018-07-19)
+
+
+### Bug Fixes
+
+* [STOR-13619](https://jira.blueprintsys.net/browse/STOR-13691) Allow items with empty text ([#1](https://github.com/BlueprintSys/ng2-select/pull/1)) ([94a6338](https://github.com/BlueprintSys/ng2-select/pull/1/commits/94a6338))
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/valor-software/ng2-select/compare/v1.2.0...v2.0.0) (2017-11-23)
 
