@@ -15,24 +15,24 @@ let styles = `
   .ui-select-placeholder {
     float: left;
   }
-  
+
   /* Fix Bootstrap dropdown position when inside a input-group */
   .input-group > .dropdown {
     /* Instead of relative */
     position: static;
   }
-  
+
   .ui-select-match > .btn {
     /* Instead of center because of .btn */
     text-align: left !important;
   }
-  
+
   .ui-select-match > .caret {
     position: absolute;
     top: 45%;
     right: 15px;
   }
-  
+
   .ui-disabled {
     background-color: #eceeef;
     border-radius: 4px;
@@ -45,7 +45,7 @@ let styles = `
     left: 0;
     cursor: not-allowed;
   }
-  
+
   .ui-select-choices {
     width: 100%;
     height: auto;
@@ -53,7 +53,7 @@ let styles = `
     overflow-x: hidden;
     margin-top: 0;
   }
-  
+
   .ui-select-multiple .ui-select-choices {
     margin-top: 1px;
   }
@@ -72,12 +72,12 @@ let styles = `
       outline: 0;
       background-color: #428bca;
   }
-  
+
   .ui-select-multiple {
     height: auto;
     padding:3px 3px 0 3px;
   }
-  
+
   .ui-select-multiple input.ui-select-search {
     background-color: transparent !important; /* To prevent double background when disabled */
     border: none;
@@ -86,13 +86,13 @@ let styles = `
     height: 1.6666em;
     padding: 0;
     margin-bottom: 3px;
-    
+
   }
   .ui-select-match .close {
       font-size: 1.6em;
       line-height: 0.75;
   }
-  
+
   .ui-select-multiple .ui-select-match-item {
     outline: 0;
     margin: 0 3px 3px 0;
@@ -168,13 +168,13 @@ let styles = `
           </div>
         </li>
       </ul>
-  
+
       <ul *ngIf="optionsOpened && options && options.length > 0 && firstItemHasChildren"
           class="ui-select-choices dropdown-menu" role="menu">
         <li *ngFor="let c of options; let index=index" role="menuitem">
           <div class="divider dropdown-divider" *ngIf="index > 0"></div>
           <div class="dropdown-header">{{c.text}}</div>
-  
+
           <div *ngFor="let o of c.children"
                class="ui-select-choices-row"
                [class.active]="isActive(o)"
@@ -235,13 +235,13 @@ let styles = `
           </div>
         </li>
       </ul>
-  
+
       <ul *ngIf="optionsOpened && options && options.length > 0 && firstItemHasChildren"
           class="ui-select-choices dropdown-menu" role="menu">
         <li *ngFor="let c of options; let index=index" role="menuitem">
           <div class="divider dropdown-divider" *ngIf="index > 0"></div>
           <div class="dropdown-header">{{c.text}}</div>
-  
+
           <div *ngFor="let o of c.children"
                class="ui-select-choices-row"
                [class.active]="isActive(o)"
@@ -271,8 +271,11 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
       this._items = this.itemObjects = [];
     } else {
       this._items = value.filter((item: any) => {
-        if ((typeof item === 'string') || (typeof item === 'object' && item && item[this.textField] && item[this.idField])) {
-          return item;
+        if (typeof item === 'string') {
+          return item || item === '';
+        }
+        if (typeof item === 'object' && item && item[this.idField]) {
+          return item[this.textField] || item[this.textField] === '';
         }
       });
       this.itemObjects = this._items.map((item: any) => (typeof item === 'string' ? new SelectItem(item) : new SelectItem({ id: item[this.idField], text: item[this.textField], children: item[this.childrenField] })));

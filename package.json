@@ -1,6 +1,6 @@
 {
   "name": "ng2-select-base",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "Angular2 based replacement for select boxes",
   "scripts": {
@@ -17,6 +17,7 @@
     "build": "ngm build -p src --clean",
     "build.watch": "ngm build -p src --watch --skip-bundles",
     "start": "ng serve --aot",
+    "postinstall": "node postinstall.js",
     "pretest": "run-s lint build link",
     "test": "ng test -sr",
     "test-coverage": "ng test -sr -cc",
@@ -94,7 +95,7 @@
     "markdown-loader": "^0.1.7",
     "marked": "0.3.6",
     "ng2-page-scroll": "4.0.0-beta.2",
-    "ngm-cli": "0.8.3",
+    "ngm-cli": "1.0.4",
     "ngx-bootstrap": "2.0.0-beta.8",
     "npm-run-all": "^4.0.1",
     "pre-commit": "1.2.2",
@@ -102,6 +103,7 @@
     "reflect-metadata": "0.1.9",
     "require-dir": "0.3.1",
     "rxjs": "5.5.2",
+    "shelljs": "^0.8.2",
     "systemjs-builder": "0.15.34",
     "ts-helpers": "^1.1.1",
     "ts-node": "2.0.0",
