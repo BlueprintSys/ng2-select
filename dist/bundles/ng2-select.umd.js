@@ -163,7 +163,7 @@ var SelectItem = (function () {
             this.id = this.text = source;
         }
         if (typeof source === 'object') {
-            this.id = source.id || source.text;
+            this.id = (typeof source.id === 'undefined' || source.id === null ? source.text : source.id);
             this.text = source.text;
             if (source.children && source.text) {
                 this.children = source.children.map(function (c) {
