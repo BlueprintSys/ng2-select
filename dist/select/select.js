@@ -55,7 +55,7 @@ var SelectComponent = (function () {
                     if (typeof item === 'string') {
                         return item || item === '';
                     }
-                    if (typeof item === 'object' && item && item[_this.idField]) {
+                    if (typeof item === 'object' && item && item[_this.idField] !== undefined && item[_this.idField] !== null) {
                         return item[_this.textField] || item[_this.textField] === '';
                     }
                 });
